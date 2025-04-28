@@ -23,23 +23,27 @@ header {
 .hero {
     height: calc(100vh - 120px);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* bleibt column */
     align-items: center;
     justify-content: center;
     position: relative;
+    gap: 2rem; /* Abstand zwischen "visuals" und Button */
 }
 
+
 .heart-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    animation: pulse 2s ease-in-out infinite;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heart {
-    width: 100%;
-    height: 100%;
+    width: 120px; /* etwas kleiner als vorher */
+    height: 120px;
+    animation: pulse 2s ease-in-out infinite;
 }
+
 
 .heart-shape {
     fill: rgb(205, 37, 112);
@@ -54,8 +58,90 @@ header {
         transform: scale(1.2);
     }
 }
+.hero {
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 3rem; /* Abstand zwischen EKG und Herz */
+}
+
+.ekg-container {
+    overflow: hidden;
+    width: 600px;
+    height: 150px;
+    position: relative;
+}
+
+.ekg {
+    width: 1200px; /* doppelt so breit wie der Container */
+    height: 150px;
+    animation: ekgMove 4s linear infinite;
+}
+
+.ekg-line {
+    stroke: #cd2570;
+    stroke-width: 2;
+    fill: none;
+}
+
+@keyframes ekgMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px); /* EKG schiebt sich genau eine Containerbreite nach links */
+    }
+}
 
 
+
+
+.heart-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* nach links rücken */
+    margin-left: -40px; /* Herz noch ein bisschen in EKG reinschieben */
+}
+
+.heart {
+    width: 150px; /* Herz kleiner */
+    height: 150px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.heart-shape {
+    fill: #cd2570; /* Erstmal pink/rot wie vorher */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes ekgMove {
+    0% {
+        stroke-dashoffset: 300;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+.visuals {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem; /* Abstand zwischen EKG und Herz */
+}
 
 /* Start Button */
 #startButton {
