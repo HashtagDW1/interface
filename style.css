@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    font-size: 2.5rem;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+.hero {
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.heart-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.heart {
+    width: 100%;
+    height: 100%;
+}
+
+.heart-shape {
+    fill: rgb(205, 37, 112);
+}
+
+/* Puls-Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+
+/* Start Button */
+#startButton {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #631dd4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover {
+    background-color: #d50e0e;
+}
