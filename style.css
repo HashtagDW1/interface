@@ -30,9 +30,17 @@ header {
 
 }
 
+.center-wrap{
+  height: 100vh; /* volle Höhe des Viewports */
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+}
+
 
 /* Start Button */
 #startButton {
+    top: 10%;
     padding: 1rem 2rem;
     font-size: 1.2rem;
     color: rgb(144, 42, 128);
@@ -40,8 +48,16 @@ header {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
     
 }
+
+#startButton.visible {
+    visibility: visible;
+    opacity: 1;
+  }
 
 #startButton:hover {
     background-color: #b753e6;

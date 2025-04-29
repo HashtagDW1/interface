@@ -3,10 +3,11 @@ document.getElementById('startButton').addEventListener('click', function() {
 });
 
 
+
   const video = document.getElementById("backgroundVideo");
   const startButton = document.getElementById("startButton");
 
   video.addEventListener("ended", () => {
-    startButton.classList.add("pulsing");
+    startButton.classList.add("visible", "pulsing");
   });
 
