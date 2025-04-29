@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: #f3e5f5;
+    transition: background 1s ease;
+  }
+  
+  header {
+    text-align: center;
+    padding: 3rem;
+    font-size: 3rem; /* Größere Schrift für den Header */
+    color: #8e24aa;
+    text-transform: uppercase; /* Für eine moderne Wirkung */
+  }
+  
+  .pulse-section {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  input[type="range"], input[type="number"] {
+    margin: 2rem 0; /* Etwas mehr Abstand */
+    padding: 1rem; /* Mehr Padding */
+    font-size: 1.5rem; /* Größere Schrift für die Eingabefelder */
+    width: 80%; /* Breiterer Schieberegler */
+    appearance: none;
+    background: #ddd;
+    border-radius: 20px;
+    height: 20px;
+    outline: none;
+    transition: background 0.3s ease;
+  }
+  
+  input[type="range"]:focus, input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px;
+    border-radius: 20px;
+    background: #8e24aa;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="range"]::-moz-range-track {
+    height: 10px;
+    border-radius: 20px;
+    background: #8e24aa;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="number"] {
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 120px;
+    border: 2px solid #8e24aa;
+    border-radius: 10px;
+    text-align: center;
+    background: #fff;
+  }
+  
+  .world h2 {
+    margin-top: 2rem;
+    font-size: 3rem; /* Größere Schrift für den Titel */
+    color: #6a1b9a;
+    animation: fadeIn 1s ease;
+    text-align: center; /* Text zentrieren */
+    font-weight: bold; /* Fettgedruckte Schrift */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  video {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 2rem;
+  }
+  

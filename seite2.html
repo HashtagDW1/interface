@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dein Puls</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puls-Welten</title>
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
-<header>
-    <h1>Gib deinen Puls ein</h1>
-</header>
+  <header>
+    <h1>Puls-Welten</h1>
+  </header>
 
-<section class="pulse-section">
-    <label for="pulseInput">Pulswert:</label>
+  <section class="pulse-section">
+    <label for="pulseSlider">Puls:</label>
+    <input type="range" id="pulseSlider" min="50" max="180" step="1">
     <input type="number" id="pulseInput" min="50" max="180" value="70">
-    <button id="submitPulse">Bestätigen</button>
+    
+    <div id="worldContainer"></div>
+  </section>
 
-    <div id="worldContainer">
-        <!-- Hier erscheint später die Landschaft -->
-    </div>
-</section>
-
-<script src="seite2.js"></script>
-
+  <script src="script2.js"></script>
 </body>
 </html>
 
