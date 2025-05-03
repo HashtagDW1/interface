@@ -83,3 +83,24 @@ function updateWorld(pulse) {
     worldContainer.innerHTML = '';
   });
 }
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const videoOverlay = document.querySelector('.fullscreen-video');
+    if (videoOverlay) {
+      // Video pausieren
+      const videoElement = videoOverlay.querySelector('video');
+      if (videoElement) {
+        videoElement.pause();
+      }
+
+      // UI zurückbringen
+      document.querySelector('header').classList.remove('hidden');
+      document.querySelector('.pulse-section').classList.remove('hidden');
+
+      // Video-Overlay entfernen
+      videoOverlay.remove();
+    }
+  }
+});
