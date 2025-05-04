@@ -1,25 +1,14 @@
-document.getElementById('startButton').addEventListener('click', function() {
-    window.location.href = 'seite2.html'; // Hier kannst du den Pfad zur nächsten Seite anpassen
-});
-
-
-
 const video = document.getElementById("backgroundVideo");
+const hero = document.getElementById("hero");
 
-video.addEventListener("timeupdate", () => {
-  if (video.currentTime >= 4) {
-    video.pause();
-    video.style.opacity = "0";
-    
-    // Optional: Video zurücksetzen oder ausblenden
-    // video.currentTime = 0;
-  }
+
+// 1. Sobald das Video zu Ende ist, Inhalte zeigen
+video.addEventListener("ended", () => {
+  // Video ausblenden
+  video.style.opacity = "0";
+
+  // Inhalte einblenden
+  hero.style.visibility = "visible";
+  hero.style.opacity = "1";
+ 
 });
-
-  const startButton = document.getElementById("startButton");
-
-  video.addEventListener("pause", () => {
-    startButton.classList.add("visible", "pulsing");
-    einblenden.classList.add("visible")
-  });
-
