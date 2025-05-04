@@ -8,7 +8,7 @@ body, html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  background-color: #f8f8f8;
+  background-color: #513068;
 }
 
 #backgroundVideo {
@@ -19,7 +19,11 @@ body, html {
   height: 100vh;
   object-fit: cover;
   z-index:1;
-  transition: opacity 2s ease;
+  
+}
+#backgroundVideo.fade-out {
+  opacity: 0;
+  transition: opacity 2s ease; /* 2 Sekunden Übergang */
 }
 
 /* Hero Section */
@@ -35,16 +39,30 @@ body, html {
   padding: 0 1rem;
 }
 
-.hero h1 {
-  font-size: 3rem;
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Vergrößern der Schrift */
+  }
+}
+
+h1 {
+  font-size: 3rem; /* Anpassung der Schriftgröße je nach Bedarf */
   font-weight: 700;
-  color: #000;
-  margin-bottom: 1rem;
+  animation: pulse 6s infinite ease-in-out; /* 2 Sekunden Takt, unendlich wiederholen */
+}
+.hero h1 {
+  font-size: 7rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
 }
 
 .hero p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 2rem;
+  color: #bfbbbb;
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -55,7 +73,7 @@ body, html {
 }
 
 .hero .button-group a {
-  padding: 0.8rem 1.6rem;
+  padding: 1.2rem 2rem;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 500;
@@ -64,21 +82,46 @@ body, html {
 }
 
 .hero .button-group .solid {
-  background-color: #000;
-  color: #fff;
+  background-color: #a6a3a3;
+  color: #ffffff;
+  
+}
+
+.hero .button-group .solid:hover{
+  background-color: #ce80f6;
+  color: #ffffff;
   
 }
 
 
 .hero .button-group .outline {
-  border: 2px solid #000;
-  color: #000;
+  border: 2px solid #a6a3a3;
+  color: #ffffff;
   background-color: transparent;
 }
 
 .hero .button-group .outline:hover {
-  background-color: #000;
+  background-color: #ce80f6;
   color: #fff;
 }
 
+#startOverlay {
+  position: fixed;
+  z-index: 9999;
+  background: #000;
+  color: #fff;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
+#startOverlay .overlay-content {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}

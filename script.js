@@ -1,14 +1,31 @@
-const video = document.getElementById("backgroundVideo");
-const hero = document.getElementById("hero");
 
+  window.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("startOverlay");
+    const hero = document.getElementById("hero");
+    const audio = document.getElementById("pulseSound");
+    const video = document.getElementById("backgroundVideo");
 
-// 1. Sobald das Video zu Ende ist, Inhalte zeigen
-video.addEventListener("ended", () => {
-  // Video ausblenden
-  video.style.opacity = "0";
+    overlay.addEventListener("click", () => {
+      // Audio starten
+      audio.play().catch(err => console.warn("Audio blockiert:", err));
 
-  // Inhalte einblenden
-  hero.style.visibility = "visible";
-  hero.style.opacity = "1";
- 
-});
+      // Video starten
+      video.play().catch(err => console.warn("Video blockiert:", err));
+
+      // Overlay ausblenden
+      overlay.style.display = "none";
+
+      setTimeout(() => {
+        video.pause(); // Pausiert das Video
+        video.classList.add("fade-out"); // Fügt die Fade-Out Klasse hinzu
+
+        // Nach dem Fade-Out (2 Sekunden), Video entfernen und Hero anzeigen
+        setTimeout(() => {
+         
+          hero.style.display = "flex";
+        }, 1000); // Warte 2 Sekunden für das Fade-Out
+      }, 4000); // Warte 4 Sekunden
+      });
+    });
+
+  

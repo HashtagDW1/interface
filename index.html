@@ -7,24 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <body>
 
-  <!-- Hintergrundvideo -->
-  <video autoplay muted id="backgroundVideo">
-    <source src="Background/BackgroundVideo.mp4" type="video/mp4">
-  </video>
-
- 
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero" style="visibility: hidden; opacity: 0;">
-    <h1>Ruhe im Puls</h1>
-    <p>Entkomme dem stressigen Alltag und versuche gezielt deinem Körper eine Entspannung zu gönnen. </p>
-    <div class="button-group">
-      <a href="seite2.html" class="solid" >Starte jetzt!</a>
-      <a href="#" class="outline">Unsere Vision</a>
+    <!-- Start-Overlay -->
+    <div id="startOverlay">
+      <div class="overlay-content">
+        <h2>Klicke hier, um zu starten</h2>
+      </div>
     </div>
-  </section>
-
+  
+     <!-- Puls-Sound -->
+     <audio id="pulseSound" loop>
+      <source src="Background/heartbeat.mp3" type="audio/mp3">
+    </audio>
+  
+    <!-- Hintergrundvideo -->
+    <video id="backgroundVideo">
+      <source src="Background/BackgroundVideo.mp4" type="video/mp4" />
+    </video>
+  
+   
+    <!-- Hauptinhalt -->
+    <section class="hero" id="hero" style="display: none;">
+      <h1>Ruhe im Puls</h1>
+      <p>Entkomme dem stressigen Alltag und versuche gezielt deinem Körper eine Entspannung zu gönnen.</p>
+      <div class="button-group">
+        <a href="seite2.html" class="solid">Starte jetzt!</a>
+        <a href="#" class="outline">Unsere Vision</a>
+      </div>
+    </section>
+  
+   
+  </body>
+  
   
   <script src="script.js"></script>
 </body>
