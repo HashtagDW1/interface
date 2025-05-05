@@ -9,7 +9,7 @@ pulseSlider.addEventListener('input', () => {
 });
 
 pulseInput.addEventListener('input', () => {
-  const value = Math.max(50, Math.min(180, pulseInput.value));
+  const value = Math.max(60, Math.min(180, pulseInput.value));
   pulseSlider.value = value;
 });
 
@@ -24,10 +24,6 @@ function updateWorld(pulse) {
   let title = '', video = '';
 
   switch (stage) {
-    case 50:
-      title = "Tiefe Ruhe 🌙";
-      video = "video/Puls 50.mp4";
-      break;
     case 60:
       title = "Entspannung pur 🍃";
       video = "video/Puls 60.mp4";

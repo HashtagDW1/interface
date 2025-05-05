@@ -1,197 +1,172 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    background: #f3e5f5;
-    transition: background 1s ease;
-  }
-  
-  header {
-    text-align: center;
-    padding: 3rem;
-    font-size: 3rem; /* Größere Schrift für den Header */
-    color: rgb(0, 0, 0);
-    text-transform: uppercase; /* Für eine moderne Wirkung */
-  }
-  
- 
-  
-  input[type="range"], input[type="number"] {
-    margin: 2rem 0; /* Etwas mehr Abstand */
-    padding: 1rem; /* Mehr Padding */
-    font-size: 1.5rem; /* Größere Schrift für die Eingabefelder */
-    width: 80%; /* Breiterer Schieberegler */
-    appearance: none;
-    background: #ddd;
-    border-radius: 20px;
-    height: 20px;
-    outline: none;
-    transition: background 0.3s ease;
-    position: relative; /* Erforderlich für das Pseudo-Element */
-  }
-  
-  input[type="range"]:focus, input[type="number"]:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Die Linie des Schiebereglers */
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 10px;
-    border-radius: 20px;
-    background: #8e24aa;
-  }
-  
-  input[type="range"]::-moz-range-track {
-    height: 10px;
-    border-radius: 20px;
-    background: #8e24aa;
-  }
-  
-  /* Der Daumen (Knopf) des Reglers */
-  input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    width: 30px; /* Größeren Daumen */
-    height: 30px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    margin-top: -10px; /* Regelt den Abstand des Daumens zur Linie */
-  }
-  
-  input[type="range"]::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-  
-  /* Style für die Zahleneingabe */
-  input[type="number"] {
-    padding: 1.2rem;
-    font-size: 2rem;
-    width: 150px;
-    height: 70px;
-    border: 3px solid #8e24aa;
-    border-radius: 12px;
-    text-align: center;
-    background: #fff;
-    font-weight: bold;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  input[type="number"]:focus {
-    border-color: #6a1b9a;
-    box-shadow: 0 0 12px rgba(138, 43, 226, 0.3);
-  }
-  
-  
-  .world h2 {
-    margin-top: 2rem;
-    font-size: 3rem; /* Größere Schrift für den Titel */
-    color: #6a1b9a;
-    animation: fadeIn 1s ease;
-    text-align: center; /* Text zentrieren */
-    font-weight: bold; /* Fettgedruckte Schrift */
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Video Styling */
-  video {
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    margin-top: 2rem;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body, html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #513068; /* Gleicher Hintergrund wie Startseite */
+  transition: background 1s ease;
+  overflow-x: hidden;
+}
 
-  .fullscreen-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.pulse-section {
+  text-align: center;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.pulse-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pulse-control label {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Slider */
+input[type="range"] {
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 300px;
+  appearance: none;
+  background: #ddd;
+  border-radius: 20px;
+  height: 20px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 20px;
+  background: #ce80f6;
+}
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  border-radius: 20px;
+  background: #ce80f6;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-top: -10px;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Zahlenfeld */
+input[type="number"] {
+  padding: 1.5rem;
+  font-size: 2rem;
+  width: 160px;
+  height: 80px;
+  border: 3px solid #ce80f6;
+  border-radius: 15px;
+  text-align: center;
+  background: #fff;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Button */
+#confirmBtn {
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #a6a3a3;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+#confirmBtn:hover {
+  background-color: #ce80f6;
+  color: #ffffff;
+}
+
+/* Videobereich */
+.fullscreen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInVideo 1s ease forwards;
+}
+
+@keyframes fadeInVideo {
+  from {
     opacity: 0;
-    animation: fadeInVideo 1s ease forwards;
   }
-  
-  @keyframes fadeInVideo {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
   }
-  
-  
-  .fullscreen-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+}
 
-  button#confirmBtn {
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    background-color: #8e24aa;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  button#confirmBtn:hover {
-    background-color: #6a1b9a;
-  }
-  
+.fullscreen-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .pulse-section {
-    text-align: center;
-    padding: 2rem;
-  }
-  
-  /* Gruppierung von Label, Slider und Eingabe */
-  .pulse-control {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .pulse-control label {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-right: 1rem;
-  }
-  
-  /* Button zentriert unterhalb */
-  #confirmBtn {
-    display: inline-block;
-    margin-top: 1.5rem;
-  }
-  
+/* Titel für die Welt */
+.world h2 {
+  margin-top: 2rem;
+  font-size: 3rem;
+  color: #ffffff;
+  animation: fadeIn 1s ease;
+  text-align: center;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
