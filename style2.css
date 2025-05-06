@@ -231,3 +231,17 @@ input[type="number"]:focus {
   z-index: 100;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
 }
+
+
+.fade-in {
+  animation: fadeInVideo 3s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOutVideo 0.5s ease forwards;
+}
+
+@keyframes fadeOutVideo {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
