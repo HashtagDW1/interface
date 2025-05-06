@@ -21,7 +21,8 @@ header {
 }
 
 h1{
-  z-index: 100;
+  z-index:1000 ;
+  position: sticky;
 }
 
 .pulse-section {
@@ -137,7 +138,7 @@ input[type="number"]:focus {
   width: 100vw;
   height: 100vh;
   background: black;
-  z-index: 9999;
+  z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;

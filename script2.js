@@ -52,7 +52,7 @@ function updateWorld(pulse) {
   if (!video) return;
 
   // UI verstecken
-  document.querySelector('header').classList.add('hidden');
+  //document.querySelector('header').classList.add('hidden');
   document.querySelector('.pulse-section').classList.add('hidden');
 
   // Video einfügen
@@ -74,7 +74,7 @@ function updateWorld(pulse) {
   });
 
   videoElement.addEventListener('ended', () => {
-    document.querySelector('header').classList.remove('hidden');
+    //document.querySelector('header').classList.remove('hidden');
     document.querySelector('.pulse-section').classList.remove('hidden');
     worldContainer.innerHTML = '';
   });
@@ -92,7 +92,7 @@ document.addEventListener('keydown', function(event) {
       }
 
       // UI zurückbringen
-      document.querySelector('header').classList.remove('hidden');
+      //document.querySelector('header').classList.remove('hidden');
       document.querySelector('.pulse-section').classList.remove('hidden');
 
       // Video-Overlay entfernen
