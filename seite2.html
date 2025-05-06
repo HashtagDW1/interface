@@ -13,19 +13,24 @@
   </header>
 
   <section class="pulse-section">
-    <div class="pulse-control">
-      <label for="pulseSlider">Gebe deinen Pulswert ein:</label>
-      <input type="range" id="pulseSlider" min="60" max="180" step="1">
-      <input type="number" id="pulseInput" min="60" max="180" value="120">
+    <div class="worlds-container">
+      <div class="world-card" data-video="video/world1.mp4" data-title="Welt der Ruhe 🌿">
+        <img src="Bilder/world1.jpg" alt="Welt 1">
+        <h3>Welt des Unterwassers</h3>
+      </div>
+      <div class="world-card" data-video="video/world2.mp4" data-title="Welt des Gleichgewichts ⚖️">
+        <img src="Bilder/world2.jpg" alt="Welt 2">
+        <h3>Welt der Natur</h3>
+      </div>
+      <div class="world-card" data-video="video/world3.mp4" data-title="Welt der Energie 🔥">
+        <img src="img/world3.jpg" alt="Welt 3">
+        <h3>Welt der Höhe</h3>
+      </div>
     </div>
-  
-    <button id="confirmBtn">Jetzt Erleben</button>
     
     <div id="worldContainer"></div>
   </section>
-  
 
   <script src="script2.js"></script>
 </body>
 </html>
-
