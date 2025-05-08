@@ -25,6 +25,8 @@ h1{
   position: sticky;
 }
 
+
+
 .pulse-section {
   text-align: center;
   padding: 2rem;
@@ -144,6 +146,29 @@ input[type="number"]:focus {
   align-items: center;
   opacity: 0;
   animation: fadeInVideo 1s ease forwards;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.back-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @keyframes fadeInVideo {
