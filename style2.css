@@ -132,21 +132,8 @@ input[type="number"]:focus {
   color: #ffffff;
 }
 
-/* Videobereich */
-.fullscreen-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  animation: fadeInVideo 1s ease forwards;
-}
+
+
 
 .back-arrow {
   position: absolute;
@@ -171,102 +158,165 @@ input[type="number"]:focus {
   background: rgba(255, 255, 255, 0.1);
 }
 
-@keyframes fadeInVideo {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fullscreen-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Titel für die Welt */
-.world h2 {
-  margin-top: 2rem;
-  font-size: 3rem;
-  color: #ffffff;
-  animation: fadeIn 1s ease;
-  text-align: center;
-  font-weight: bold;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 
-
-
-
-
-
-.worlds-container {
+.sound-cards {
   display: flex;
+  gap: 15px;
   justify-content: center;
-  gap: 3rem;
   flex-wrap: wrap;
-  margin: 3rem auto;
-  max-width: 1200px;
+  margin: 20px 0;
 }
 
-.world-card {
-  width: 350px;
-  height: 500px;
-  background: #fff;
-  border-radius: 25px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+.sound-card {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
 }
 
-.world-card:hover {
+.sound-card .icon {
+  font-size: 2em;
+}
+
+.sound-card .label {
+  margin-top: 8px;
+  font-size: 1em;
+}
+
+.sound-card.active {
+  background: #e0f7fa;
+  border-color: #26c6da;
   transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.world-card img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-.world-card h3 {
-  font-size: 1.8rem;
-  margin-top: 1rem;
-  color: #513068;
-  font-weight: bold;
+.volume-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8%;
 }
 
 
-.world-title {
+.btn-home {
+      margin-left: 38%;
+      text-align: center;
+      padding: 10px 20px;
+      background: #af34b1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+}
+
+.btn-home:hover {
+      background: #b2beb3;
+}
+
+#pulse { font-size: 48px; color: rgb(255, 255, 255); }
+
+.heart {
+  position: relative;
+  margin-left: 44%;
+  top:40px;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: pulse 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  font-size: 2rem;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+
+.circle-container {
+  position: relative;
+  margin-left: 46%;
+  margin-top: 150px;
+  margin-right: 46%;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.progress-ring .background {
+  stroke: #eee;
+}
+
+.progress-ring .progress {
+  stroke: #26c6da;
+  stroke-linecap: round;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292; /* Anfang: leer */
+  transition: stroke-dashoffset 0.2s linear;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
   color: #fff;
-  z-index: 100;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  pointer-events: none;
 }
 
-
-.fade-in {
-  animation: fadeInVideo 3s ease forwards;
-}
-
-.fade-out {
-  animation: fadeOutVideo 0.5s ease forwards;
-}
-
-@keyframes fadeOutVideo {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+.circle-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }

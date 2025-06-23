@@ -1,74 +1,101 @@
-const worldContainer = document.getElementById('worldContainer');
+const pulseDisplay = document.getElementById('pulse');
+const volumeControl = document.getElementById('volume');
 
-// Klick auf eine Weltkarte → Video + Audio abspielen
-document.querySelectorAll('.world-card').forEach(card => {
+const sounds = {
+  nature: new Audio('audio/wind.mp3'),
+  birds: new Audio('audio/birds.mp3'),
+  water: new Audio('audio/water.mp3')
+};
+
+// Loop + initial volume
+for (const sound of Object.values(sounds)) {
+  sound.loop = true;
+  sound.volume = volumeControl.value;
+}
+
+// Volume-Event
+volumeControl.addEventListener('input', (e) => {
+  const vol = e.target.value;
+  for (const sound of Object.values(sounds)) {
+    sound.volume = vol;
+  }
+});
+
+// Sound-Karten-Toggle
+document.querySelectorAll('.sound-card').forEach(card => {
   card.addEventListener('click', () => {
-    const videoSrc = card.getAttribute('data-video');
-    const audioSrc = card.getAttribute('data-audio');
-    const title = card.getAttribute('data-title');
+    const soundKey = card.dataset.sound;
+    const sound = sounds[soundKey];
 
-    // UI verstecken
-    document.querySelector('.pulse-section').classList.add('hidden');
-
-    // Video + Audio + Titel einfügen
-    worldContainer.innerHTML = `
-      <div class="fullscreen-video fade-in">
-        <video id="pulseVideo" autoplay muted playsinline>
-          <source src="${videoSrc}" type="video/mp4">
-          Dein Browser unterstützt dieses Videoformat nicht.
-        </video>
-        <audio id="pulseAudio" preload="auto">
-          <source src="${audioSrc}" type="audio/mpeg">
-          Dein Browser unterstützt dieses Audioformat nicht.
-        </audio>
-        <div class="world-title">${title}</div>
-      </div>
-    `;
-
-    const videoElement = document.getElementById('pulseVideo');
-    const audioElement = document.getElementById('pulseAudio');
-
-    videoElement.addEventListener('canplay', () => {
-      videoElement.play().catch(err => console.error("Video konnte nicht starten:", err));
-      audioElement.play().catch(err => console.error("Audio konnte nicht starten:", err));
-    });
-
-    videoElement.addEventListener('ended', () => {
-      stopMedia();
-    });
+    if (card.classList.contains('active')) {
+      card.classList.remove('active');
+      sound.pause();
+    } else {
+      card.classList.add('active');
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    }
   });
 });
 
-// ESC-Taste → Alles schließen
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    stopMedia();
+// Progress-Circle vorbereiten
+const circle = document.querySelector('.progress-ring .progress');
+const radius = 54;
+const circumference = 2 * Math.PI * radius;
+
+circle.style.strokeDasharray = `${circumference}`;
+circle.style.strokeDashoffset = `${circumference}`; // Start: vollständig leer
+
+function updateCircle(durationMs, requiredMs = 20000) {
+  const progress = Math.min(durationMs / requiredMs, 1);
+  const offset = circumference * (1 - progress);
+  circle.style.strokeDashoffset = offset;
+}
+
+// Pulsoid WebSocket + Schwellen-Logik
+const ACCESS_TOKEN = '9016a765-2c89-4591-b595-3186be28e3a3';
+const socket = new WebSocket(`wss://dev.pulsoid.net/api/v1/data/real_time?access_token=${ACCESS_TOKEN}`);
+
+let initialPulse = null;
+let belowThresholdSince = null;
+const REQUIRED_DURATION = 20000; // 20 Sekunden
+
+socket.addEventListener('message', (event) => {
+  try {
+    const json = JSON.parse(event.data);
+    const pulse = json?.data?.heart_rate;
+
+    if (pulse) {
+      pulseDisplay.textContent = pulse;
+
+      if (initialPulse === null) {
+        initialPulse = pulse;
+        console.log(`📌 Initialpuls: ${initialPulse}`);
+      }
+
+      const threshold = initialPulse * 0.9;
+
+      if (pulse <= threshold) {
+        if (belowThresholdSince === null) {
+          belowThresholdSince = Date.now();
+          console.log(`⏳ Puls unter Schwelle. Timer gestartet.`);
+        } else {
+          const duration = Date.now() - belowThresholdSince;
+          updateCircle(duration);
+          if (duration >= REQUIRED_DURATION) {
+            console.warn(`🛑 Puls unter Schwelle seit ${duration / 1000}s – Weiterleitung.`);
+            window.location.href = 'finish.html';
+          }
+        }
+      } else {
+        if (belowThresholdSince !== null) {
+          console.log(`✅ Puls wieder über Schwelle. Timer zurückgesetzt.`);
+        }
+        belowThresholdSince = null;
+        updateCircle(0);
+      }
+    }
+  } catch (e) {
+    console.error('Fehler beim Verarbeiten der Pulsoid-Daten:', e);
   }
 });
-
-// Gemeinsames Stoppen von Video + Audio
-function stopMedia() {
-  const overlay = document.querySelector('.fullscreen-video');
-  if (overlay) {
-    const video = overlay.querySelector('video');
-    const audio = overlay.querySelector('audio');
-
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-
-    overlay.classList.remove('fade-in');
-    overlay.classList.add('fade-out');
-
-    // nach dem Ausblenden entfernen
-    setTimeout(() => {
-      overlay.remove();
-      document.querySelector('.pulse-section').classList.remove('hidden');
-    }, 500); // Dauer des Fade-Outs
-  }
-}
