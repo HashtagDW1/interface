@@ -7,8 +7,8 @@
 body, html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
-  background-color: #513068; /* Gleicher Hintergrund wie Startseite */
-  transition: background 1s ease;
+  transition: background 4s ease, filter 4s ease;
+  background: radial-gradient(circle at center, #000000, #1a1a1a); /* Start */
   overflow-x: hidden;
 }
 
@@ -169,7 +169,7 @@ input[type="number"]:focus {
 }
 
 .sound-card {
-  background: #ffffff;
+  background: #ffffff58;
   border: 2px solid #ddd;
   border-radius: 10px;
   padding: 20px;
@@ -204,7 +204,7 @@ input[type="number"]:focus {
   align-items: center;
   gap: 10px;
   justify-content: center;
-  margin-top: 8%;
+  
 }
 
 
@@ -319,4 +319,24 @@ input[type="number"]:focus {
 .circle-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+.light-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.light-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  transition: opacity 4s ease-out, transform 4s ease-out;
 }
