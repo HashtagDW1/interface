@@ -8,7 +8,7 @@ body, html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  background-color:  #513068 ;
+  background-color:  #0d0810 ;
   
 }
 
@@ -89,7 +89,7 @@ h1 {
 }
 
 .hero .button-group .solid:hover{
-  background-color: #ce80f6;
+  background-color: #dd487c;
   color: #ffffff;
   
 }
@@ -102,7 +102,7 @@ h1 {
 }
 
 .hero .button-group .outline:hover {
-  background-color: #ce80f6;
+  background-color: #dd487c;
   color: #fff;
 }
 

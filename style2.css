@@ -65,12 +65,12 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 10px;
   border-radius: 20px;
-  background: #ce80f6;
+  background: #dd487c;
 }
 input[type="range"]::-moz-range-track {
   height: 10px;
   border-radius: 20px;
-  background: #ce80f6;
+  background: #dd487c;
 }
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
@@ -97,7 +97,7 @@ input[type="number"] {
   font-size: 2rem;
   width: 160px;
   height: 80px;
-  border: 3px solid #ce80f6;
+  border: 3px solid #dd487c;
   border-radius: 15px;
   text-align: center;
   background: #fff;
@@ -128,7 +128,7 @@ input[type="number"]:focus {
 }
 
 #confirmBtn:hover {
-  background-color: #ce80f6;
+  background-color: #dd487c;
   color: #ffffff;
 }
 
@@ -195,7 +195,7 @@ input[type="number"]:focus {
 
 .sound-card.active {
   background: #e0f7fa;
-  border-color: #26c6da;
+  border-color: #dd487c;
   transform: scale(1.05);
 }
 
@@ -207,22 +207,42 @@ input[type="number"]:focus {
   
 }
 
+.centered {
+  color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
+/* Titel */
+.centered h1 {
+  font-size: 2em;
+  margin-bottom: 50px;
+}
+
+/* Beschreibung */
+.Routinetext {
+  font-size: 1.1em;
+  color: #555;
+  
+}
 .btn-home {
-      margin-left: 38%;
-      text-align: center;
+      
+      align-items: center;
       padding: 10px 20px;
-      background: #af34b1;
+      background: #dd487c;
       color: white;
       border: none;
       border-radius: 5px;
       font-size: 1em;
       cursor: pointer;
       text-decoration: none;
+      
 }
 
 .btn-home:hover {
-      background: #b2beb3;
+      background: #e67ba0;
 }
 
 #pulse { font-size: 48px; color: rgb(255, 255, 255); }
@@ -233,7 +253,7 @@ input[type="number"]:focus {
   top:40px;
   width: 20px;
   height: 20px;
-  background-color: red;
+  background-color: #dd487c;
   transform: rotate(-45deg);
   animation: pulse 1s infinite;
 }
@@ -244,7 +264,7 @@ input[type="number"]:focus {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: red;
+  background-color: #dd487c;
   border-radius: 50%;
 }
 
@@ -292,7 +312,7 @@ input[type="number"]:focus {
 }
 
 .progress-ring .progress {
-  stroke: #26c6da;
+  stroke: #dd487c;
   stroke-linecap: round;
   stroke-dasharray: 339.292;
   stroke-dashoffset: 339.292; /* Anfang: leer */
@@ -340,3 +360,11 @@ input[type="number"]:focus {
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
   transition: opacity 4s ease-out, transform 4s ease-out;
 }
+
+.Routinetext {
+  font-size: 1.1em;
+  color: #555;
+  margin: 0;
+}
+
+

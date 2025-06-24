@@ -78,16 +78,11 @@ socket.addEventListener('message', (event) => {
         console.log(`📌 Initialpuls: ${initialPulse}`);
       }
 
-      if (pulse) {
-        pulseDisplay.textContent = pulse;
-        updateBackground(pulse);
       
-        
-      }
 
       if (pulse) {
-        pulseDisplay.textContent = pulse;
-        updateBackground(pulse);
+        /*pulseDisplay.textContent = pulse;
+        updateBackground(pulse);*/
       
         beatInterval = 60000 / pulse;
       
@@ -111,6 +106,8 @@ socket.addEventListener('message', (event) => {
           if (duration >= REQUIRED_DURATION) {
             console.warn(`🛑 Puls unter Schwelle seit ${duration / 1000}s – Weiterleitung.`);
             window.location.href = 'finish.html';
+            
+            
           }
         }
       } else {
@@ -125,7 +122,7 @@ socket.addEventListener('message', (event) => {
     console.error('Fehler beim Verarbeiten der Pulsoid-Daten:', e);
   }
 });
-function updateBackground(pulse) {
+/*function updateBackground(pulse) {
   if (pulse <= 45) {
     document.body.style.background = 'radial-gradient(circle at center, #0a0f1c, #1c2541, #3a506b)';
     document.body.style.filter = 'brightness(0.7) saturate(1.2)';
@@ -157,7 +154,7 @@ function updateBackground(pulse) {
     document.body.style.background = 'radial-gradient(circle at center, #c9184a, #ff4d6d, #ff758f)';
     document.body.style.filter = 'brightness(1.5) saturate(1.7)';
   }
-}
+}*/
 
 const lightContainer = document.querySelector('.light-container');
 
@@ -195,3 +192,5 @@ function triggerLightDots() {
     }, 600);
   }
 }
+
+
