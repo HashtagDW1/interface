@@ -18,7 +18,7 @@ for (const sound of Object.values(sounds)) {
 }
 
 // Volume-Event
-volumeControl.addEventListener('input', (e) => {
+volumeControl.addEventListener('input',"DOMContentLoaded", (e) => {
   const vol = e.target.value;
   for (const sound of Object.values(sounds)) {
     sound.volume = vol;
