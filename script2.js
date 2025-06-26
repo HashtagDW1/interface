@@ -4,12 +4,12 @@ const pulseDisplay = document.getElementById('pulse');
 const volumeControl = document.getElementById('volume');
 
 const sounds = {
-  nature: new Audio('https://deinname.github.io/deinprojekt/audio//wind.mp3'),
-  birds: new Audio('https://deinname.github.io/deinprojekt/audio//birds.mp3'),
-  water: new Audio('https://deinname.github.io/deinprojekt/audio//water.mp3'),
-  hiphop: new Audio('https://deinname.github.io/deinprojekt/audio//hiphop.mp3'),
-  drums: new Audio('https://deinname.github.io/deinprojekt/audio//drums.mp3'),
-  guitar: new Audio('https://deinname.github.io/deinprojekt/audio//guitar.mp3'),
+  nature: new Audio('https://hashtagdw1.github.io/interface/audio//wind.mp3'),
+  birds: new Audio('https://hashtagdw1.github.io/interface//birds.mp3'),
+  water: new Audio('https://hashtagdw1.github.io/interface/audio//water.mp3'),
+  hiphop: new Audio('https://hashtagdw1.github.io/interface//hiphop.mp3'),
+  drums: new Audio('https://hashtagdw1.github.io/interface//drums.mp3'),
+  guitar: new Audio('https://hashtagdw1.github.io/interface//guitar.mp3'),
   
 };
 
