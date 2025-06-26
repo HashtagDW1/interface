@@ -1,15 +1,15 @@
-window.addEventListener('DOMContentLoaded')
+
 
 const pulseDisplay = document.getElementById('pulse');
 const volumeControl = document.getElementById('volume');
 
 const sounds = {
-  nature: new Audio('Audio/wind.mp3'),
-  birds: new Audio('Audio/birds.mp3'),
-  water: new Audio('Audio/water.mp3'),
-  hiphop: new Audio('Audio/hiphop.mp3'),
-  drums: new Audio('Audio/drums.mp3'),
-  guitar: new Audio('Audio/guitar.mp3'),
+  nature: new Audio('https://deinname.github.io/deinprojekt/audio//wind.mp3'),
+  birds: new Audio('https://deinname.github.io/deinprojekt/audio//birds.mp3'),
+  water: new Audio('https://deinname.github.io/deinprojekt/audio//water.mp3'),
+  hiphop: new Audio('https://deinname.github.io/deinprojekt/audio//hiphop.mp3'),
+  drums: new Audio('https://deinname.github.io/deinprojekt/audio//drums.mp3'),
+  guitar: new Audio('https://deinname.github.io/deinprojekt/audio//guitar.mp3'),
   
 };
 
@@ -30,7 +30,7 @@ volumeControl.addEventListener('input', (e) => {
 
 // Sound-Karten-Toggle
 document.querySelectorAll('.sound-card').forEach(card => {
-  card.addEventListener('click', () => {
+  card.addEventListener('click',() => {
     const soundKey = card.dataset.sound;
     const sound = sounds[soundKey];
 
