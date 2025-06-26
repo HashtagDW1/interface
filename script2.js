@@ -2,12 +2,12 @@ const pulseDisplay = document.getElementById('pulse');
 const volumeControl = document.getElementById('volume');
 
 const sounds = {
-  nature: new Audio('audio/wind.mp3'),
-  birds: new Audio('audio/birds.mp3'),
-  water: new Audio('audio/water.mp3'),
-  hiphop: new Audio('audio/hiphop.mp3'),
-  drums: new Audio('audio/drums.mp3'),
-  guitar: new Audio('audio/guitar.mp3'),
+  nature: new Audio('Audio/wind.mp3'),
+  birds: new Audio('Audio/birds.mp3'),
+  water: new Audio('Audio/water.mp3'),
+  hiphop: new Audio('Audio/hiphop.mp3'),
+  drums: new Audio('Audio/drums.mp3'),
+  guitar: new Audio('Audio/guitar.mp3'),
   
 };
 
