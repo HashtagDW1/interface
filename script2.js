@@ -1,3 +1,5 @@
+window.addEventListener('DOMContentLoaded')
+
 const pulseDisplay = document.getElementById('pulse');
 const volumeControl = document.getElementById('volume');
 
@@ -11,6 +13,7 @@ const sounds = {
   
 };
 
+
 // Loop + initial volume
 for (const sound of Object.values(sounds)) {
   sound.loop = true;
@@ -18,7 +21,7 @@ for (const sound of Object.values(sounds)) {
 }
 
 // Volume-Event
-volumeControl.addEventListener('input',"DOMContentLoaded", (e) => {
+volumeControl.addEventListener('input', (e) => {
   const vol = e.target.value;
   for (const sound of Object.values(sounds)) {
     sound.volume = vol;
@@ -156,6 +159,7 @@ socket.addEventListener('message', (event) => {
   }
 }*/
 
+
 const lightContainer = document.querySelector('.light-container');
 
 function triggerLightDots() {
@@ -192,5 +196,4 @@ function triggerLightDots() {
     }, 600);
   }
 }
-
 
